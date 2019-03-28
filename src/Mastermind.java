@@ -6,14 +6,25 @@ public class Mastermind {
 
 
     public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] farbe = new String[4];
 
-        String farbe1 = "blue";
-        String farbe2 = "red";
-        String farbe3 = "blue";
-        String farbe4 = "yellow";
-        String checker1 = "";
+
+
+        String[] checker = new String[4];
+
+        for (int k = 0; k < 4; k++) {
+            System.out.print("Geheimer Code"+ " Farbe" + (k+1) + ":");
+            farbe[k] = br.readLine();
+        }
+
+        for (int o = 0; o < 50; o++) {
+            System.out.println(" ");
+        }
+
+
         for (int i = 1; i < 13; i++) {
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
             String[] eingabe = new String[4];
 
             for (int j = 0; j < 4; j++) {
@@ -22,21 +33,21 @@ public class Mastermind {
             }
             System.out.println("Dein Versuch: " + eingabe[0] + " " + eingabe[1] + " " + eingabe[2] + " " + eingabe[3]);
 
-            if (farbe1.equals(eingabe[0])) {
-                checker1 = "√";
-                System.out.println(checker1);
+            for (int p = 0; p < 4; p++) {
+                if (farbe[p].equals(eingabe[p])) {
+                    checker[p] = "√";
+                }
+                else {
+                    checker[p] = "";
+                }
             }
-            if (farbe2.equals(eingabe[1])) {
-                checker1 = "√";
-                System.out.println(checker1);
+            for (int e = 0; e < 4; e++) {
+                System.out.print(checker[e]);
             }
-            if (farbe3.equals(eingabe[2])) {
-                checker1 = "√";
-                System.out.println(checker1);
-            }
-            if (farbe4.equals(eingabe[3])) {
-                checker1 = "√";
-                System.out.println(checker1);
+            System.out.println();
+            if (checker[0].equals("√")&&checker[1].equals("√")&&checker[2].equals("√")&&checker[3].equals("√")){
+                System.out.println("Herzlichen Glückwunsch! Sie haben ein Porsche Cayman S gewonnen!1!!");
+                break;
             }
         }
 
